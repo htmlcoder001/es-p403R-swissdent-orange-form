@@ -777,51 +777,504 @@
 		<br>
     <link rel="stylesheet" href="form/form.css">
         <!--Form-->
-        <div id="form">
-
-            <div id="form_image">
-                <div class="form_image_wrap_image">
-                    <img src="prod.png" alt="">
+          <style>
+            /* Form */
+            .form {
+              font-family: -apple-system,BlinkMacSystemFont,Arial,sans-serif;
+              margin-bottom: 48px;
+            }
+            .form-wrapper {
+              background-color: #fff;
+              padding: 16px 20px;
+              margin-top: 16px;
+              overflow: hidden;
+      
+              border: 1px solid #eee;
+            }
+            .form-wrapper__headline {
+      
+            }
+            .form-headline__title {
+              font-style: normal;
+              font-weight: 700;
+              font-size: 50px;
+              line-height: 61px;
+              text-align: center;
+              text-transform: uppercase;
+              display: block;
+              color: #FF9900;
+            }
+            .form-headline__subtitle {
+              font-style: normal;
+              font-weight: 700;
+              font-size: 30px;
+              line-height: 36px;
+              text-align: center;
+              text-transform: uppercase;
+              display: block;
+              color: #232323;
+            }
+    
+            .form-wrapper__countdown {
+              margin-top: 48px;
+              display: flex;
+              justify-content: center;
+              align-items: flex-start;
+              gap: 12px;
+              position: relative;
+              z-index: 1;
+            }
+            .form-countdown__item {
+              text-align: center;
+            }
+            .countdown-item__value {
+              font-style: normal;
+              font-weight: 400;
+              font-size: 50px;
+              line-height: 61px;
+              text-align: center;
+              text-transform: uppercase;
+              display: block;
+              color: #000000;
+            }
+            .countdown-item__title {
+              border-top: 1px solid #ACACAC;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 20px;
+              line-height: 24px;
+              text-align: center;
+              display: block;
+              color: #000000;
+              padding-top: 4px;
+            }
+    
+            .form-wrapper__content {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+              margin-top: 100px;
+              position: relative;
+            }
+            .form-content__features {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+              padding-bottom: 48px;
+            }
+            .form-features__item {
+              font-style: normal;
+              font-weight: 400;
+              font-size: 25px;
+              line-height: 30px;
+              position: relative;
+              color: #000000;
+              padding-left: 48px;
+              max-width: 500px;
+            }
+            .form-features__item:before {
+              content: '';
+              display: block;
+              position: absolute;
+              width: 36px;
+              height: 36px;
+              background-image: url(images/icon-form-feature.svg);
+              background-repeat: no-repeat;
+              background-position: center;
+              -webkit-background-size: contain;
+              background-size: contain;
+              left: 0;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+              transform: translateY(-50%);
+            }
+            .form-content__image {
+              width: 450px;
+              height: 360px;
+              position: absolute;
+              right: -32px;
+              object-fit: contain;
+            }
+    
+            .form-wrapper__box {
+              display: flex;
+              justify-content: center;
+              align-items: stretch;
+              gap: 8px;
+              margin-top: 8px;
+            }
+            .form-box__input {
+              width: 100%;
+              max-width: 320px;
+              height: 62px;
+      
+              background: #FFFFFF;
+              border: 1px solid #D6D6D6;
+      
+              -webkit-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+              -moz-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+              -ms-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+              -o-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+              box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+      
+              -webkit-border-radius: 5px;
+              -moz-border-radius: 5px;
+              -ms-border-radius: 5px;
+              -o-border-radius: 5px;
+              border-radius: 5px;
+              padding: 12px;
+              font-size: 18px;
+            }
+            .form-box__submit {
+              width: 100%;
+              max-width: 460px;
+              height: 62px;
+              background: linear-gradient(180deg, #FF9900 0%, #E28902 100%);
+              -webkit-border-radius: 5px;
+              -moz-border-radius: 5px;
+              -ms-border-radius: 5px;
+              -o-border-radius: 5px;
+              border-radius: 5px;
+            }
+            .form-submit__text {
+              font-style: normal;
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 24px;
+              text-align: center;
+              cursor: pointer;
+              color: #FFFFFF;
+            }
+    
+            .form-wrapper__price {
+              max-width: 290px;
+              width: 100%;
+              margin: 32px auto 0 auto;
+            }
+            .form-price__old {
+              height: 88px;
+              width: 100%;
+              background-image: url(images/form-price-old-bg.svg);
+              background-repeat: no-repeat;
+              -webkit-background-size: contain;
+              background-size: contain;
+              background-position: center;
+      
+              font-style: normal;
+              font-weight: 700;
+              font-size: 50px;
+              line-height: 61px;
+              position: relative;
+              padding-top: 12px;
+              padding-left: 12px;
+            }
+            .form-price__old span {
+              color: #DA1111;
+              position: relative;
+            }
+            .form-price__old span b {
+              font-size: 30px;
+            }
+            .form-price__old span:before {
+              content: "";
+              border-bottom: 5px solid black;
+              position: absolute;
+              width: 100%;
+              height: 50%;
+              transform: rotate(9deg);
+              left: 2px;
+              top: -2px;
+            }
+            .form-price__new {
+              width: 100%;
+              height: 202px;
+              background-image: url(images/form-price-new-bg.svg);
+              background-repeat: no-repeat;
+              -webkit-background-size: contain;
+              background-size: contain;
+              background-position: center;
+              text-align: center;
+              padding: 20px 0;
+              margin-top: -30px;
+            }
+            .price-new__text {
+              font-style: normal;
+              font-weight: 700;
+              font-size: 50px;
+              line-height: 61px;
+              padding-top: 16px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-position: center;
+              color: #000000;
+              width: 100%;
+              max-width: calc(100% - 40px);
+              margin: 0 auto;
+              height: 109px;
+              background-image: url(images/form-price-new-inner-bg.svg);
+              background-repeat: no-repeat;
+              -webkit-background-size: contain;
+              background-size: contain;
+            }
+            .price-new__discount {
+              margin-top: 6px;
+              font-style: normal;
+              font-weight: 700;
+              font-size: 50px;
+              line-height: 61px;
+      
+              color: #FFFFFF;
+            }
+            .--form-price-mobile {
+              display: none;
+            }
+    
+            @media (max-width: 1080px) {
+              .form-content__image {
+                max-width: 390px;
+              }
+            }
+    
+            @media (max-width: 960px) {
+              .form-content__image {
+                max-width: 370px;
+                right: -40px;
+                bottom: -12px;
+              }
+              .form-content__features {
+                max-width: 380px;
+              }
+            }
+    
+            @media (max-width: 768px) {
+              .form-wrapper__content {
+                flex-direction: column;
+                margin: 32px auto 0 auto;
+                align-items: center;
+                justify-content: flex-start;
+              }
+              .form-wrapper__box {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              }
+              .form-box__submit,
+              .form-box__input {
+                max-width: 460px;
+              }
+              .form-submit__text {
+                font-size: 18px;
+              }
+              .form-content__image {
+                display: none;
+              }
+              .form-wrapper__content:before,
+              .form-wrapper__content:after {
+                content: '';
+                display: block;
+                position: absolute;
+                background-repeat: no-repeat;
+                -webkit-background-size: contain;
+                background-size: contain;
+                background-position: center;
+                z-index: 2;
+                pointer-events: none;
+              }
+              .form-wrapper__content:before {
+                bottom: 300px;
+                background-image: url(images/prod.png);
+                max-width: 340px;
+                width: 100%;
+                height: 295px;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -o-transform: translateX(-50%);
+                transform: translateX(-50%);
+              }
+              .form-wrapper__content:after {
+                bottom: 450px;
+                right: -32px;
+                background-image: url(images/form-image-hand.png);
+                width: 400px;
+                height: 350px;
+        
+              }
+              .form-wrapper__countdown {
+                margin-top: 24px;
+              }
+              .form-wrapper__price {
+                display: none;
+              }
+              .--form-price-mobile {
+                display: block;
+                margin-top: 500px;
+                margin-bottom: 24px;
+              }
+      
+      
+            }
+    
+            @media (max-width: 575px) {
+              .form-content__image {
+                width: 100%;
+                max-width: 380px;
+                height: auto;
+              }
+              .countdown-item__value,
+              .form-headline__title {
+                font-size: 42px;
+                line-height: 48px;
+              }
+              .countdown-item__title {
+                font-size: 16px;
+              }
+              .form-features__item {
+                font-size: 21px;
+                padding-left: 36px;
+                line-height: 26px;
+              }
+              .form-features__item:before {
+                width: 28px;
+                height: 28px;
+              }
+              .form-wrapper__content:after {
+                width: 320px;
+                bottom: 480px;
+              }
+              .form-wrapper__content:before {
+                max-width: 280px;
+              }
+            }
+    
+            @media (max-width: 375px) {
+              .form-price__old,
+              .price-new__text,
+              .price-new__discount {
+                font-size: 42px;
+              }
+              .price-new__discount {
+                margin-top: -6px;
+              }
+              .form-wrapper__content:after {
+                width: 280px;
+                bottom: 480px;
+              }
+            }
+    
+            @media (max-width: 340px) {
+              .form-price__new {
+                margin-top: -40px;
+              }
+            }
+          </style>
+          <section class="form" id="form_section">
+            <div class="theme-wrapper form-wrapper">
+              <div class="form-wrapper__headline">
+                <span class="form-headline__title">GRAN OFERTA</span>
+                <span class="form-headline__subtitle">SÓLO QUEDAN</span>
+              </div>
+              <div class="form-wrapper__countdown js-countdown">
+                <div class="form-countdown__item">
+                  <span class="countdown-item__value js-countdown__days">00</span>
+                  <span class="countdown-item__title">Días</span>
                 </div>
+                <div class="form-countdown__item">
+                  <span class="countdown-item__value js-countdown__hours">00</span>
+                  <span class="countdown-item__title">Horas</span>
+                </div>
+                <div class="form-countdown__item">
+                  <span class="countdown-item__value js-countdown__minutes">39</span>
+                  <span class="countdown-item__title">Minutos</span>
+                </div>
+                <div class="form-countdown__item">
+                  <span class="countdown-item__value js-countdown__seconds">52</span>
+                  <span class="countdown-item__title">Segundos</span>
+                </div>
+              </div>
+      
+              <div class="form-wrapper__content">
+                <div class="form-content__features">
+                  <div class="form-features__item">Calidad suiza</div>
+                  <div class="form-features__item">Entrega 2-3 días</div>
+                  <div class="form-features__item">Promoción del 50% de descuento</div>
+                </div>
+                <div class="form-wrapper__price --form-price-mobile">
+                  <div class="form-price__old">
+                    <span>98.00<b>€</b></span>
+                  </div>
+                  <div class="form-price__new">
+                    <div class="price-new__text">49.00€</div>
+                    <div class="price-new__discount">-50%</div>
+                  </div>
+                </div>
+                <img src="images/form-image.png" alt="" class="form-content__image" pinger-seen="true">
+              </div>
+      
+              <form class="form-wrapper__box" geo="es" action="api.php" method="post" onsubmit="return validate_form(this, 'Por favor ingrese un número de teléfono válido');">
+                <input name="subid" type="hidden" value="{subid}">
+                <input name="px" type="hidden" value="{px}">
+                <input name="bayer" type="hidden" value="{bayer}">
+                <input required="" type="text" name="name" id="form_name" class="form-box__input" placeholder="Nombre">
+                <input required="" type="tel" name="phone" id="form_tel" class="form-box__input" placeholder="Teléfono (móvil activo)">
+                <button type="submit" class="form-box__submit">
+                  <span class="form-submit__text">¡Haga clic para una nueva sonrisa!</span>
+                </button>
+              </form>
+      
+              <div class="form-wrapper__price">
+                <div class="form-price__old">
+                  <span>98.00<b>€</b></span>
+                </div>
+                <div class="form-price__new">
+                  <div class="price-new__text">49.00€</div>
+                  <div class="price-new__discount">-50%</div>
+                </div>
+              </div>
             </div>
+          </section>
+          <script>
+            'use strict';
 
+            document.addEventListener("DOMContentLoaded", () => {
+              /** Countdown **/
+              (() => {
+                let sec         = 2400,
+                  countDiv    = document.querySelector(".js-countdown"),
+                  countDown   = setInterval(function () {
+                    secpass();
+                  }, 1000);
 
-            <div class="form_wrap" id="objectScrollAttention">
-                <form method="POST" geo="es" action="api.php" 
-	onsubmit="return validate_form(this, 'Por favor ingrese un número de teléfono válido');">
-                        <label class="descount">Descuento -50%</label>
+                function secpass() {
+                  let min     = Math.floor(sec / 60),
+                    remSec  = sec % 60;
 
-                        <div id="price">
-                            <div class="price_new">
-                                49 €
-                            </div>
-                            <div class="price_old">
-                                98 €
-							</div>
-                        </div>
+                  if (remSec < 10) {
+                    remSec = '0' + remSec;
+                  }
+                  if (min < 10) {
+                    min = '0' + min;
+                  }
 
-                        <center><label class="inp_name">Nombre</label></center>
-                        <input name="name" placeholder="" required="" type="text">
+                  document.querySelector('.js-countdown__minutes').innerHTML = min;
+                  document.querySelector('.js-countdown__seconds').innerHTML = remSec;
 
-                        <center><label class="inp_phone">Teléfono (móvil activo)
-						</label></center>
-                        <input name="phone" placeholder="" required="" type="tel" id="phone">
+                  if (sec > 0) {
+                    sec = sec - 1;
+                  } else {
+                    clearInterval(countDown);
+                    countDiv.innerHTML = '';
+                  }
+                }
+              })();
 
-<input name="subid" type="hidden" value="{subid}">
-<input name="px" type="hidden" value="{px}">
-<input name="bayer" type="hidden" value="{bayer}">
-<br>
-                        <button type="submit" class="btnn">ORDENAR</button>
-
-                       <div class="sus"> 
-                            <div class="sus_text">Sus datos están confidenciales</div>
-                        </div>
-
-                </form>
-            </div>
-
-        </div>
-		<br>
+            });
+          </script>
         <!--Form END-->
 
         </div>
@@ -833,9 +1286,9 @@
 
 
 
-            <div class=" comments">
+            <div class=" comments" style="width: 100%;">
                <div class=" border-top" >
-                  <div class="col-md-12">
+                  <div class="">
   
   
                     <div class="theme-wrapper comments-wrapper">
